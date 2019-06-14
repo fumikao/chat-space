@@ -1,0 +1,12 @@
+.flash {
+  width: 100vw;
+  height: 25px;
+  color: $color-white;
+  text-align: center;
+  &__alert {
+    background: #F35500;
+  }
+  &__notice {
+    background: $color-flash-and-btn;
+  }
+}
