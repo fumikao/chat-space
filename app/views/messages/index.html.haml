@@ -1,0 +1,36 @@
+.wrapper
+  = render partial: "index"
+  .main
+    .main-header
+      .main-header__top
+        .main-header__top-name
+          test-group-name
+        .main-header__top-edit
+          = link_to "Edit", root_path
+      %ul.main-header__members
+        Member：
+        %li test1
+        %li test2
+    .main-messages
+      .message
+        .message__top
+          .message__top-name
+            test1
+          .message__top-time
+            test-time
+        .message__text
+          text-message
+      .message
+        .message__top
+          .message__top-name
+            test1
+          .message__top-time
+            test-time
+        .message__text
+          text-message
+    %form.main-form
+      %input.main-form__message{placeholder: "type a message"}
+      %label.main-form__image
+        = fa_icon 'image'
+        %input{type: "file"}
+      %input.main-form__submit{type: "submit", value: 'Send'}
