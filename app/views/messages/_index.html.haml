@@ -1,0 +1,24 @@
+.flash
+  グループを作成しました
+.side
+  .side-header
+    .side-header__name
+      test-name
+    .side-header__icons
+      = link_to root_path do
+        = fa_icon 'edit'
+      = link_to root_path do
+        = fa_icon 'cog'
+  %ul.side-groups
+    %li.side-groups__group
+      = link_to root_path do
+        %p.side-groups__group-name
+          test-group1-name
+        %p.side-groups__group-message
+          test-group1-message
+    %li.side-groups__group
+      = link_to root_path do
+        %p.side-groups__group-name
+          test-group1-name
+        %p.side-groups__group-message
+          test-group1-message
