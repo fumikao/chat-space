@@ -1,3 +1,16 @@
 @import "./reset";
 @import "./variable";
-@import "font-awesome"
+@import "font-awesome";
+@import "./index";
+
+* {
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
