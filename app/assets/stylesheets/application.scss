@@ -1,8 +1,10 @@
 @import "./reset";
 @import "./variable";
 @import "font-awesome";
-@import "./index";
+@import "./chatspace";
 @import "./user.scss";
+@import "./flash";
+@import "./side";
 
 
 * {
@@ -15,4 +17,8 @@ li {
 
 a {
   text-decoration: none;
+}
+
+.wrapper {
+  overflow: hidden;
 }
