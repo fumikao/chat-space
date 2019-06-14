@@ -1,41 +1,36 @@
-.Flash
-  フラッシュがあれば表示
-.Container
-  .Side
-    .Side-header
-      .Side-header__name
-        ユーザーの名前
-      %span.Side-header__new        
-      = link_to root_path do
-        = fa_icon 'edit'
-      %span.Side-header__edit
-      = link_to root_path do
-        = fa_icon 'cog'
-    .Side-groups
-      = link_to root_path do
-        %ul
-          %li.Side-groups__name
-            グループ名
-          %li.Side-groups__message
-            メッセージ
-      
-       
-  .Main
-    .Main-header
-      .Main-header__name
-        group.name
-      = link_to "Edit", root_path
-      .Main-header__menmbers
-        Members
-    .Main-messages
-      .Main-messages__name
-        name
-      .Main-messages__time
-        time
-      .Main-messages__text
-        text
-    %form.Main-form
-      %input.Main-form__message
-      .Main-form__image
-      = fa_icon 'image'
-      %input{type: "submit", value: 'Send'}
+.wrapper
+  = render partial: "index"
+  .main
+    .main-header
+      .main-header__top
+        .main-header__top-name
+          test-group-name
+        .main-header__top-edit
+          = link_to "Edit", root_path
+      %ul.main-header__members
+        Member：
+        %li test1
+        %li test2
+    .main-messages
+      .message
+        .message__top
+          .message__top-name
+            test1
+          .message__top-time
+            test-time
+        .message__text
+          text-message
+      .message
+        .message__top
+          .message__top-name
+            test1
+          .message__top-time
+            test-time
+        .message__text
+          text-message
+    %form.main-form
+      %input.main-form__message{placeholder: "type a message"}
+      %label.main-form__image
+        = fa_icon 'image'
+        %input{type: "file"}
+      %input.main-form__submit{type: "submit", value: 'Send'}
