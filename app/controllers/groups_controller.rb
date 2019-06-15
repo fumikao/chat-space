@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   def new
     @group = Group.new
+    @group.users << current_user
   end
 
   def create
@@ -9,7 +10,7 @@ class GroupsController < ApplicationController
       flash[:notice] = "グループを作成しました"
       redirect_to root_path
     else
-      render "new"
+      render :new
     end
   end
 
