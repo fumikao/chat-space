@@ -4,22 +4,14 @@
     .main-header
       .main-header__top
         .main-header__top-name
-          test-group-name
+          = @group.name
         .main-header__top-edit
-          = link_to "Edit", root_path
+          = link_to "Edit", edit_group_path(@group)
       %ul.main-header__members
         Member：
-        %li test1
-        %li test2
+        - @group.group_users.each do |group_user|
+          %li= group_user.user.name
     .main-messages
-      .message
-        .message__top
-          .message__top-name
-            test1
-          .message__top-time
-            test-time
-        .message__text
-          text-message
       .message
         .message__top
           .message__top-name

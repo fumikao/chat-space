@@ -9,8 +9,8 @@
         = fa_icon 'cog'
   %ul.side-groups
     %li.side-groups__group
-      = link_to root_path do
-        - current_user.groups.each do |group|
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
           %p.side-groups__group-name
             = group.name
           %p.side-groups__group-message
