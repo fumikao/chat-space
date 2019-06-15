@@ -10,13 +10,8 @@
   %ul.side-groups
     %li.side-groups__group
       = link_to root_path do
-        %p.side-groups__group-name
-          test-group1-name
-        %p.side-groups__group-message
-          test-group1-message
-    %li.side-groups__group
-      = link_to root_path do
-        %p.side-groups__group-name
-          test-group1-name
-        %p.side-groups__group-message
-          test-group1-message
+        - current_user.groups.each do |group|
+          %p.side-groups__group-name
+            = group.name
+          %p.side-groups__group-message
+            まだメッセージはありません。
