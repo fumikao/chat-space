@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     if @group.update(group_params)
       flash[:notice] = "グループを編集しました"
-      redirect_to group_messages(@group)
+      redirect_to group_messages_path(@group)
     else
       render :edit
     end
