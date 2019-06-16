@@ -1,0 +1,11 @@
+.main-messages
+  .message
+    .message__top
+      .message__top-name
+        = message.user.name
+      .message__top-time
+        = message.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+    .message__text
+      - if message.body.present?
+        = message.body
+      = image_tag message.image if message.image.present?
