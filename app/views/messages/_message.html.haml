@@ -1,0 +1,18 @@
+.main-messages
+  .message
+    .message__top
+      .message__top-name
+        = message.user.name
+      .message__top-time
+        = message.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+    .message__text
+      - if message.body.present?
+        = message.body
+      = image_tag message.image if message.image.present?
+= form_for [@group, @message] do |f|
+  .main-form
+    = f.text_field :body, placeholder: "type a message", class: "main-form__message"
+    = f.label :image, class: "main-form__image" do
+      = fa_icon "image"
+      = f.file_field :image, class: "main-form__image--default"
+    = f.submit 'Send', class: "main-form__submit"

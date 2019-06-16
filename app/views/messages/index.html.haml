@@ -11,18 +11,4 @@
         Member：
         - @group.group_users.each do |group_user|
           %li= group_user.user.name
-    .main-messages
-      .message
-        .message__top
-          .message__top-name
-            test1
-          .message__top-time
-            test-time
-        .message__text
-          text-message
-    %form.main-form
-      %input.main-form__message{placeholder: "type a message"}
-      %label.main-form__image
-        = fa_icon 'image'
-        %input{type: "file"}
-      %input.main-form__submit{type: "submit", value: 'Send'}
+    = render @messages
