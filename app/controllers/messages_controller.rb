@@ -14,8 +14,8 @@ class MessagesController < ApplicationController
     else
       @messages = @group.messages.includes(:user)
       flash[:alert] = "メッセージを入力してください。"
-      # render :index
-      redirect_to group_messages_path(@group)
+      render :index
+      # redirect_to group_messages_path(@group)
     end
   end
 

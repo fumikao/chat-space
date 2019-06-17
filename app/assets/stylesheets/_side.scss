@@ -1,17 +1,20 @@
 .side {
   float: left;
   width: 300px;
-  height: 100vh;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
   background: #2f3e51;
   div, a {
     color: $color-white;
   }
   &-header {
     background: #253141;
-    width: 100%;
+    width: 300px;
     height: 100px;
     line-height: 100px;
     padding: 0 20px;
+    position: fixed;
     &__name {
       float: left;
       font-size: 16px;
@@ -22,7 +25,8 @@
     }
   }
   &-groups {
-    padding: 20px;
+    height: 100%;
+    padding: 120px 20px 20px 20px;
     &__group-name {
       font-size: 15px;
       margin-bottom: 5px;
