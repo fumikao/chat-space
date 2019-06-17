@@ -11,7 +11,8 @@
         Member：
         - @group.group_users.each do |group_user|
           %li= group_user.user.name
-    = render @messages
+    .main-messages
+      = render @messages
     = form_for [@group, @message] do |f|
       .main-form
         = f.text_field :body, placeholder: "type a message", class: "main-form__message"
