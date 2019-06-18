@@ -38,6 +38,20 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'font-awesome-rails'
+
+  gem 'haml-rails'
+  gem 'erb2haml'
+
+  gem 'devise'
+
+  gem 'carrierwave'
+  gem 'mini_magick'
+
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development do
@@ -52,12 +66,3 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'font-awesome-rails'
-
-gem 'haml-rails'
-gem 'erb2haml'
-
-gem 'devise'
-
-gem 'carrierwave'
-gem 'mini_magick'
