@@ -16,9 +16,18 @@ $(function() {
                       ${image}
                     </div>
                   </div>`
-    return html;
+                  return html;
   }
 
+  function scrollMessages(){
+    var target = $('.message').last();
+    var position = target.offset().top + $('.main-messages').scrollTop();
+    $('.main-messages').animate({
+      scrollTop: position
+    }, 1000, 'swing');
+  }
+
+  
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -35,6 +44,7 @@ $(function() {
       var html = buildHTML(data);
       $('.main-messages').append(html);
       $('#message_body').val('');
+      scrollMessages();
     })
     .fail(function(){
       alert('メッセージを入力してください');
