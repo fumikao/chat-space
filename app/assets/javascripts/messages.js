@@ -2,7 +2,7 @@ $(function() {
   function buildHTML(message){
     var body = message.body ? `${message.body}` : "";
     var image = message.image ?  `<img src=${message.image}>` : "";
-    var html = `<div class="message">
+    var html = `<div class="message" data-id=${message.id}>
                     <div class="message__top">
                       <div class="message__top-name">
                         ${message.user_name}
@@ -26,7 +26,6 @@ $(function() {
       scrollTop: position
     }, 1000, 'swing');
   }
-
   
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -53,4 +52,27 @@ $(function() {
       $("input[type=submit]").removeAttr("disabled");
     })
   })
+
+  var reloadMessages = function(){
+    var last_message_id = $('.message:last').data('id');
+    $.ajax({
+      url: './api/messages',
+      type: 'GET',
+      data: {id: last_message_id},
+      dataType: 'json'
+    })
+    .done(function(data){
+      $.each(data, function(i, data){
+        var html = buildHTML(data);
+        $('.main-messages').append(html);
+        scrollMessages();
+      })
+    })
+    .fail(function(){
+      alert('自動更新に失敗しました');
+    });
+  };
+  if (location.href.match(/\/groups\/\d+\/messages/)){
+    setInterval(reloadMessages, 5000);
+  }
 });
