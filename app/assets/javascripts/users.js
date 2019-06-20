@@ -46,7 +46,6 @@ $(function(){
     });
   });
     $(document).on('click', '.chat-group-user__btn--add', function(){
-      console.log("hello");
       var user_id = $(this).data('user-id');
       var user_name = $(this).data('user-name');
       $(this).parent().remove();
