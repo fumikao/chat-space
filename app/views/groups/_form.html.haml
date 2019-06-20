@@ -10,18 +10,18 @@
       = f.label :チャットメンバーを追加, class: 'chat-group-form__label'
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        = f.text_field :id, placeholder: '追加したいユーザー名を入力してください', class: 'chat-group-form__input', id: 'user-search-field'
+        %input{type: 'text', placeholder: '追加したいユーザー名を入力してください', class: 'chat-group-form__input', id: 'user-search-field'}
       #user-search-result
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = f.label :チャットメンバー, class: "chat-group-form__label"
     .chat-group-form__field--right#member-result
-      .chat-group-form__field--right
-      = f.collection_check_boxes :user_ids, User.all, :id, :name 
-    -#   = f.hidden_field :user_ids, value: current_user.id
-    -#   .chat-group-user.clearfix.js-chat-member#chat-group-user-8
-    -#     .chat-group-user__name
-    -#       = current_user.name
+      - @group.users.each do |user|
+        .chat-group-user.clearfix.js-chat-member#chat-group-user-8
+          = f.hidden_field :id, name: 'group[user_ids][]', value: user.id
+          %p.chat-group-user__name= user.name
+          - if user != current_user
+            .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
