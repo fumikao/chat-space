@@ -24,11 +24,18 @@ $(function(){
   }
 
   $('#user-search-field').on('keyup', function(){
+    var members = [];
+    $('input:hidden[name="group[user_ids][]"]').each(function(i, id){
+      members.push($(this).val());
+    });
     var input = $(this).val();
     $.ajax({
       type: 'GET',
       url: '/users',
-      data: {keyword: input},
+      data: {
+        keyword: input,
+        members: members
+      },
       dataType: 'json'
     })
     .done(function(users){
