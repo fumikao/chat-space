@@ -18,7 +18,7 @@
     .chat-group-form__field--right#member-result
       - @group.users.each do |user|
         .chat-group-user.clearfix.js-chat-member#chat-group-user-8
-          = f.hidden_field :id, name: 'group[user_ids][]', value: user.id
+          %input{type: 'hidden', name: 'group[user_ids][]', value: user.id}
           %p.chat-group-user__name= user.name
           - if user != current_user
             .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
