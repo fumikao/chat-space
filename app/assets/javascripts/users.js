@@ -45,13 +45,13 @@ $(function(){
       alert('ユーザー検索に失敗しました');
     });
   });
-    $(document).on('click', '.chat-group-user__btn--add', function(){
-      var user_id = $(this).data('user-id');
-      var user_name = $(this).data('user-name');
-      $(this).parent().remove();
-      appendMember(user_id, user_name);
-    });
-    $(document).on('click', '.chat-group-user__btn--remove', function(){
-      $(this).parent().remove();
-    });
+  $(document).on('click', '.chat-group-user__btn--add', function(){
+    var user_id = $(this).data('user-id');
+    var user_name = $(this).data('user-name');
+    $(this).parent().remove();
+    appendMember(user_id, user_name);
+  });
+  $(document).on('click', '.chat-group-user__btn--remove', function(){
+    $(this).parent().remove();
+  });
 });
