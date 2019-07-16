@@ -1,66 +1,61 @@
-# README
+Chat-space
+====
+## 概要
+多人数でチャットができるアプリケーションです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 機能
+- 新規登録・ログイン・ログアウト
+- グループ作成・編集
+- メッセージ投稿
+- 画像投稿
 
-Things you may want to cover:
+## 使用技術
+- Ruby
+- Ruby on Rails
+- jQuery
+- MySQL
+- AWS
 
-* Ruby version
+## DB設計
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-## membersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-
-### Association
-
-- belongs_to :user
-- belongs_to :group
-
-## usersテーブル
+### usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
 |email|string|null: false, unique: true|
 
-### Association
+#### Association
 
 - has_many :messages
-- has_many :members
-- has_many :groups, through: :members
+- has_many :group_users
+- has_many :groups, through: :group_users
 
-## groupsテーブル
+### groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
-### Association
+#### Association
 
 - has_many :messages
-- has_many: members
-- has_many :users, through: :members
+- has_many :group_users
+- has_many :users, through: :group_users
 
-## messagesテーブル
+### group_usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+
+#### Association
+
+- belongs_to :user
+- belongs_to :group
+
+### messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -69,7 +64,7 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
-### Association
+#### Association
 
 - belongs_to :user
 - belongs_to :group
