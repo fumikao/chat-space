@@ -3,20 +3,20 @@ $(function() {
     var body = message.body ? `${message.body}` : "";
     var image = message.image ?  `<img src=${message.image}>` : "";
     var html = `<div class="message" data-id=${message.id}>
-                    <div class="message__top">
-                      <div class="message__top-name">
-                        ${message.user_name}
-                      </div>
-                      <div class="message__top-time">
-                        ${message.created_at}
-                      </div>
+                  <div class="message__top">
+                    <div class="message__top-name">
+                      ${message.user_name}
                     </div>
-                    <div class="message__text">
-                      <p>${body}</p>
-                      ${image}
+                    <div class="message__top-time">
+                      ${message.created_at}
                     </div>
-                  </div>`
-                  return html;
+                  </div>
+                  <div class="message__text">
+                    <p>${body}</p>
+                    ${image}
+                  </div>
+                </div>`
+    return html;
   }
 
   function scrollMessages(){
@@ -62,6 +62,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data){
+      console.log('success')
       $.each(data, function(i, data){
         var html = buildHTML(data);
         $('.main-messages').append(html);
